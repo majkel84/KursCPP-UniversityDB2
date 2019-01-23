@@ -1,4 +1,7 @@
 # KursCPP-UniversityDB2
+
+[![Build Status](https://travis-ci.org/jzych/KursCPP-UniversityDB2.svg?branch=master)](https://travis-ci.org/jzych/KursCPP-UniversityDB2)
+
 Rozszerzenie studenckiej bazy danych w ramch projektu grupowego. Termin środa **30.01**
 
 ## Zakres pracy
