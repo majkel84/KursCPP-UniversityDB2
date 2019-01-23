@@ -2,6 +2,18 @@
 
 using namespace std;
 
+#define MENU_SHOW			1
+#define MENU_NEW_STUDENT	2
+#define MENU_NEW_EMPLOYEE	3
+#define MENU_SEARCH_NAME	4
+#define MENU_SEARCH_PESEL	5
+#define MENU_REMOVE_PESEL	6
+#define MENU_MODIFY_PESEL	7
+#define MENU_SORT_SALARY	8
+#define MENU_SORT_PESEL		9
+#define MENU_SORT_NAME		10
+#define MENU_EXIT			11
+
 void menuShow() {
     cout << endl << "Program option:" << endl;
     cout << "1. Show students list" << endl;
@@ -18,7 +30,7 @@ void menuShow() {
 }
 
 int main() {
-    char option;
+    int option;
 
     // Clear terminal
     cout << "\033[2J\033[1;1H";
@@ -28,44 +40,44 @@ int main() {
         cin >> option;
 
         switch (option) {
-            case '1' :
+            case MENU_SHOW :
                 cout << "Show students list" << endl;
                 break;
-            case '2' : 
+            case MENU_NEW_STUDENT : 
                 cout << "Add new student" << endl;
                 break;
-			case '3' : 
+			case MENU_NEW_EMPLOYEE : 
                 cout << "Add new employee" << endl;
                 break;
-			case '4' : 
+			case MENU_SEARCH_NAME : 
                 cout << "Search by last name" << endl;
                 break;
-			case '5' : 
+			case MENU_SEARCH_PESEL : 
                 cout << "Search by PESEL" << endl;
                 break;
-            case '6' : 
+            case MENU_REMOVE_PESEL : 
                 cout << "Remove by PESEL" << endl ;
                 break;
-			case '7' : 
+			case MENU_MODIFY_PESEL : 
                 cout << "Modify emplyee by PESEL" << endl;
                 break;
-            case '8' : 
+            case MENU_SORT_SALARY : 
                 cout << "Sort by salary" << endl;
                 break;
-			case '9' : 
+			case MENU_SORT_PESEL : 
                 cout << "Sort by PESEL" << endl;
                 break;
-			case '10' : 
+			case MENU_SORT_NAME : 
                 cout << "Sort by last name" << endl;
                 break;
-            case '11' : 
+            case MENU_EXIT : 
                 cout << "Exit (save to file)" << endl;
                 break;
             default : 
                 cout << "Unknown option " << option << "!" << endl;
                 break;
         }
-    } while (option != '11');
+    } while (option != MENU_EXIT);
     
     return 0;
 }
