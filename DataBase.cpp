@@ -11,3 +11,8 @@ void Database::addItem(Person * person) {
     db_.emplace_back(person);
 }
 
+void Database::showAll() {
+    for (auto x : db_)
+        x->show();
+}
+
