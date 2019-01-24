@@ -15,18 +15,18 @@ using namespace std;
 #define MENU_EXIT			11
 
 void menuShow() {
-    cout << endl << "Program option:" << endl;
-    cout << "1. Show students list" << endl;
-    cout << "2. Add new student" << endl;
-	cout << "3. Add new employee" << endl;
-    cout << "4. Search by last name" << endl;
-    cout << "5. Search by PESEL" << endl;
-    cout << "6. Remove by PESEL" << endl ;
-    cout << "7. Modify emplyee by PESEL" << endl;
-    cout << "8. Sort by salary" << endl;
-    cout << "9. Sort by PESEL" << endl;
-	cout << "10. Sort by last name" << endl;
-	cout << "11. Exit" << endl;
+    cout << "Program option:" << endl;
+    cout << MENU_SHOW           << ". Show students list" << endl;
+    cout << MENU_NEW_STUDENT    << ". Add new student" << endl;
+	cout << MENU_NEW_EMPLOYEE   << ". Add new employee" << endl;
+    cout << MENU_SEARCH_NAME    << ". Search by last name" << endl;
+    cout << MENU_SEARCH_PESEL   << ". Search by PESEL" << endl;
+    cout << MENU_REMOVE_PESEL   << ". Remove by PESEL" << endl ;
+    cout << MENU_MODIFY_PESEL   << ". Modify emplyee by PESEL" << endl;
+    cout << MENU_SORT_SALARY    << ". Sort by salary" << endl;
+    cout << MENU_SORT_PESEL     << ". Sort by PESEL" << endl;
+	cout << MENU_SORT_NAME      << ". Sort by last name" << endl;
+	cout << MENU_EXIT           << ". Exit" << endl;
 }
 
 int main() {
@@ -77,6 +77,8 @@ int main() {
                 cout << "Unknown option " << option << "!" << endl;
                 break;
         }
+        
+        cout << endl;
     } while (option != MENU_EXIT);
     
     return 0;
