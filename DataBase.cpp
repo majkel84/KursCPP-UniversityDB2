@@ -6,3 +6,8 @@ void Database::sortByPESEL() {
         return one->getPESEL() < two->getPESEL();
         });
 }
+
+void Database::addItem(Person * person) {
+    db_.emplace_back(person);
+}
+
