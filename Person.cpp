@@ -24,3 +24,7 @@ int32_t Person::getPESEL() const {
 string Person::getLastName() const {
     return lastName_;
 }
+
+ostream& operator << (ostream& out, Person const& p) {
+    return p.serialize(out);
+}
