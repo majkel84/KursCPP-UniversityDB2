@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Student.hpp"
 #include "Employee.hpp"
 
@@ -8,8 +9,7 @@ using Persons = vector<Person*>;
 
 class Database {
     public:
-        void addStudent(const Student & student);
-        void addEmployee(const Employee & employee);
+        void addItem(Person * person);
         void removeByPESEL(const uint32_t pesel);
         void modifyIncome(const uint newIncome, const uint32_t pesel);
         void modifyAddress(const string newAddress, const uint32_t pesel);
