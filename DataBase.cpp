@@ -20,3 +20,10 @@ void Database::sortByLastname() {
     });
 }
 
+void Database::sortByIncome() {
+    std::sort(begin(db_), end(db_), [](Person * one, Person * two) {
+        Employee* e1 = dynamic_cast<Employee*>(one);
+        Employee* e2 = dynamic_cast<Employee*>(two);
+        return (e1 ? e1->getIncome() : 0) > (e2 ? e2->getIncome() : 0);
+    });
+}
