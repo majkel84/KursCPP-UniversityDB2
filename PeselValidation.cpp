@@ -6,9 +6,10 @@ int32_t getDate(int64_t pesel);  //return tuple
 
 PeselError isDateValid(int year, int month, int day);
 
-int32_t getSerialNo(int64_t pesel);
-
-Gender getGender(int32_t serial_no);
+PeselError isGenderValid(int64_t pesel, Gender gender) {
+    Gender pesel_gender = static_cast<Gender> (pesel / 10 % 2);
+    return (gender == pesel_gender) ? PeselError::ok_success : PeselError::invalid_gender;
+}
 
 PeselError isCheckSumValid(int64_t pesel) {
     int a = pesel / 10000000000 % 10;
