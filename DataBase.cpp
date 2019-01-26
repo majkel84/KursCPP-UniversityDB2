@@ -1,5 +1,22 @@
 #include "DataBase.hpp"
 
+using namespace std;
+
+
+ostream& operator << (ostream& stream_out, Person p){  
+    stream_out << p.name << " " << p.lastName << " " << p.pesel << " " << p.gender << " " << p.adress << " " << p.income;
+    return stream_out; 
+}
+  
+ 
+istream& operator >> (istream& stream_in, Person &p){  
+    stream_in >> p.name >> " " >> p.lastName >> " " >> p.pesel >> " " >> p.gender >> " " >> p.adress >> " " >> p.income;
+    return stream_in; 
+}
+
+
+
+
 void Database::sortByPESEL() {
     std::sort(begin(db_), end(db_), [](Person * one, Person * two) {
         return one->getPESEL() < two->getPESEL();
