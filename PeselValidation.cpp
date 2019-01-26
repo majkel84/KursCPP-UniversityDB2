@@ -2,9 +2,57 @@
 
 PeselError isPeselValid(int64_t pesel);
 
-int32_t getDate(int64_t pesel);  //return tuple
+bool isYearLeap(int year) {
+    return (((year % 4 == 0) &&
+             (year % 100 != 0)) ||
+             (year % 400 == 0));
+}
 
-PeselError isDateValid(int year, int month, int day);
+PeselError isDateValid(int64_t pesel) {
+    int day = pesel / 100000 % 100;
+    int month = pesel / 10000000 % 100;
+    int year = pesel / 1000000000;
+    int century;
+
+    // Divide century information from month variable
+    for (century = 0; month > 20; century++) month -= 20;
+    switch (century) {
+        case 0:
+            year += 1900;
+            break;
+        case 1:
+            year += 2000;
+            break;
+        case 2:
+            year += 2100;
+            break;
+        case 3:
+            year += 2200;
+            break;
+        case 4:
+            year += 1800;
+            break;
+    }
+
+    if (month < 1 || month > 12) return PeselError::invalid_month;
+
+    // Validate day for February
+    if (month == 2) {
+        if(isYearLeap(year)) {
+            if (day > 29) return PeselError::invalid_day;
+        } else {
+            if (day > 28) return PeselError::invalid_day;
+        }
+    // Validate day for April, June, September and November
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        if (day > 30) return PeselError::invalid_day;
+    // Validate day for other months
+    } else {
+        if (day > 31) return PeselError::invalid_day;
+    }
+
+    return PeselError::ok_success;
+}
 
 PeselError isGenderValid(int64_t pesel, Gender gender) {
     Gender pesel_gender = static_cast<Gender> (pesel / 10 % 2);

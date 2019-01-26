@@ -11,7 +11,7 @@ enum PeselError {
 };
 
 PeselError isPeselValid(int64_t pesel);
-int32_t getDate(int64_t pesel);  //return tuple
-PeselError isDateValid(int year, int month, int day);
+bool isYearLeap(int year);
+PeselError isDateValid(int64_t pesel);
 PeselError isGenderValid(int64_t pesel, Gender gender);
 PeselError isCheckSumValid(int64_t pesel);
