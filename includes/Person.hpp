@@ -5,8 +5,8 @@
 using namespace std;
 
 enum Gender {
-    Male,
-    Female
+    Female,
+    Male
 };
 
 class Person {
