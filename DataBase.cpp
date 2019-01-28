@@ -38,3 +38,15 @@ void Database::searchByPESEL(const int64_t pesel) {
      }
      else std::cout << "Person with PESEL " << pesel << " not found" << endl;
  }
+
+void Database::searchByLastname(const string lastname) {
+    std::vector<Person*>::iterator iter = std::find_if(begin(db_), end(db_), [lastname](Person * person) {
+       return person->getLastName() == lastname;
+    });
+    if (iter != end(db_)) {
+        std::cout << "Found!!!" << endl;
+        Person* p = *iter;
+        p->show();
+    }
+    else std::cout << "Person with lastname " << lastname << " not found" << endl;
+}

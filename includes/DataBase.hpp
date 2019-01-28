@@ -16,7 +16,7 @@ class Database {
         void sortByLastname();
         void sortByPESEL();
         void sortByIncome();
-        void searchByLastname(const string lastname, Person* item);
+        void searchByLastname(const string lastname);
         void searchByPESEL(const int64_t pesel);
         void showAll();
         bool validatePESEL(int64_t pesel);
