@@ -61,3 +61,13 @@ void Database::modifyIncome(const int newIncome, const int64_t pesel) {
         e->setIncome(newIncome);
     }
 }
+
+void Database::modifyAddress(const string newAddress, const int64_t pesel) {
+    auto iter = std::find_if(begin(db_), end(db_), [pesel](const Person * person ) {
+        return person->getPESEL() == pesel;
+    });
+    if (iter != db_.end()) {
+        Person * p = *iter;
+        p->setAddress(newAddress);
+    }
+}
