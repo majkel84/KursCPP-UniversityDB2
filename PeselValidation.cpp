@@ -1,6 +1,6 @@
 #include "PeselValidation.hpp"
 
-PeselError isPeselValid(int64_t pesel);
+PeselError isPeselValid(int64_t pesel, Gender gender);
 
 bool isYearLeap(int year) {
     return (((year % 4 == 0) &&
@@ -51,15 +51,15 @@ PeselError isDateValid(int64_t pesel) {
         if (day > 31) return PeselError::invalid_day;
     }
 
-    return PeselError::ok_success;
+    return PeselError::valid_ok;
 }
 
-PeselError isGenderValid(int64_t pesel, Gender gender) {
+bool isGenderValid(int64_t pesel, Gender gender) {
     Gender pesel_gender = static_cast<Gender> (pesel / 10 % 2);
-    return (gender == pesel_gender) ? PeselError::ok_success : PeselError::invalid_gender;
+    return (gender == pesel_gender) ? true : false;
 }
 
-PeselError isCheckSumValid(int64_t pesel) {
+bool isCheckSumValid(int64_t pesel) {
     int a = pesel / 10000000000 % 10;
     int b = pesel / 1000000000 % 10;
     int c = pesel / 100000000 % 10;
@@ -74,5 +74,5 @@ PeselError isCheckSumValid(int64_t pesel) {
 
     int checksum = (9*a + 7*b + 3*c + d + 9*e + 7*f + 3*g + h + 9*i + 7*j) % 10;
 
-    return (checksum == k) ? PeselError::ok_success : PeselError::invalid_checksum;
+    return (checksum == k) ? true : false;
 }
