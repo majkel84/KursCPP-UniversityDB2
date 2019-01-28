@@ -1,6 +1,10 @@
 #include "PeselValidation.hpp"
 
-PeselError isPeselValid(int64_t pesel, Gender gender);
+PeselError isPeselValid(int64_t pesel, Gender gender) {
+    if (!isCheckSumValid(pesel)) return PeselError::invalid_checksum;
+    if (!isGenderValid(pesel, gender)) return PeselError::invalid_gender;
+    return isDateValid(pesel);
+}
 
 bool isYearLeap(int year) {
     return (((year % 4 == 0) &&
