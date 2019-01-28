@@ -27,3 +27,14 @@ void Database::sortByIncome() {
         return (e1 ? e1->getIncome() : 0) > (e2 ? e2->getIncome() : 0);
     });
 }
+
+void Database::searchByPESEL(const int64_t pesel) {
+     std::vector<Person*>::iterator iter = std::find_if(begin(db), end(db), [pesel](Person * person) {
+             return person->getPESEL() == pesel;
+     });
+     if (iter != end(db)) {
+         Person* p = *iter;
+         p->show();
+     }
+     else std::cout << "Person with PESEL " << pesel << " not found" << endl;
+ }
