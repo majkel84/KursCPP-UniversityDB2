@@ -8,11 +8,28 @@ ostream& operator << (ostream& stream_out, Person p){
     return stream_out; 
 }
   
- 
+ostream& operator << (ostream& stream_out, Student s){  
+    stream_out << s.name << " " << s.lastName << " " << s.pesel << " " << s.gender << " " << s.adress;
+    return stream_out; 
+}
+
+
+
+
 istream& operator >> (istream& stream_in, Person &p){  
     stream_in >> p.name >> " " >> p.lastName >> " " >> p.pesel >> " " >> p.gender >> " " >> p.adress >> " " >> p.income;
     return stream_in; 
 }
+
+
+
+istream& operator >> (istream& stream_in, Student &s){  
+    stream_in >> s.name >> " " >> s.lastName >> " " >> s.pesel >> " " >> s.gender >> " " >> s.adress;
+    return stream_in; 
+}
+
+
+
 
 
 
