@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 ostream& operator << (ostream& stream_out, Person p){  
     stream_out << p.name << " " << p.lastName << " " << p.pesel << " " << p.gender << " " << p.adress << " " << p.income;
     return stream_out; 
@@ -13,24 +12,38 @@ ostream& operator << (ostream& stream_out, Student s){
     return stream_out; 
 }
 
-
-
-
 istream& operator >> (istream& stream_in, Person &p){  
     stream_in >> p.name >> " " >> p.lastName >> " " >> p.pesel >> " " >> p.gender >> " " >> p.adress >> " " >> p.income;
     return stream_in; 
 }
-
-
 
 istream& operator >> (istream& stream_in, Student &s){  
     stream_in >> s.name >> " " >> s.lastName >> " " >> s.pesel >> " " >> s.gender >> " " >> s.adress;
     return stream_in; 
 }
 
+void fileSave(){
+    fstream data;
+    data.open("file.txt" ios::out | ios::app);
+    data = "ble...";    
+    data.close();
+}
 
 
-
+void fileOpen(){
+    string n;
+    fstream data;
+    data.open("file.txt"; ios::in);
+    if(data.good() == false){
+        cout<<"A file does not exist";
+        exit(0);
+    }
+    while (!data.eof()){
+        getline(data,n);
+        cout << n << endl;
+    }
+    data.close();
+}
 
 
 
