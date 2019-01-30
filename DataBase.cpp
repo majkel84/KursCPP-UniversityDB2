@@ -29,10 +29,10 @@ void Database::sortByIncome() {
 }
 
 void Database::searchByPESEL(const int64_t pesel) {
-     std::vector<Person*>::iterator iter = std::find_if(begin(db), end(db), [pesel](Person * person) {
+     std::vector<Person*>::iterator iter = std::find_if(begin(db_), end(db_), [pesel](Person * person) {
              return person->getPESEL() == pesel;
      });
-     if (iter != end(db)) {
+     if (iter != end(db_)) {
          Person* p = *iter;
          p->show();
      }
