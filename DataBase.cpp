@@ -67,3 +67,14 @@ void Database::loadFromFile(const string filename) {
     }
     data.close();
 }
+
+void Database::saveToFile(const string filename) {
+    std::ifstream data;
+
+    data.open(filename, std::ofstream::out);
+    if (data) {
+        for(auto const& item : db_) data << *item;
+    } else {
+        std::cout << "File creation failed, check disk space" << std::endl;
+    }
+}

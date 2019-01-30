@@ -23,7 +23,7 @@ class Database {
         void showAll();
         bool validatePESEL(uint32_t pesel);
         void loadFromFile(const string filename);
-        bool saveToFile(const string filename);
+        void saveToFile(const string filename);
 
     private:
         Persons db_;
