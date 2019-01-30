@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <fstream>
 #include "Student.hpp"
 #include "Employee.hpp"
 #include "PeselValidation.hpp"
@@ -21,7 +22,7 @@ class Database {
         void searchByPESEL(const uint32_t pesel, Person* item);
         void showAll();
         bool validatePESEL(uint32_t pesel);
-        bool loadFromFile(const string filename);
+        void loadFromFile(const string filename);
         bool saveToFile(const string filename);
 
     private:
